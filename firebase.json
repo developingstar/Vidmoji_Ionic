@@ -1,0 +1,9 @@
+{
+  "firebase": "vidmoji",
+  "public": "www",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

@@ -1,0 +1,27 @@
+<ion-view hide-nav-bar="true">
+  <ion-content class="text-center margin-top-10">
+
+    <div class="padding-20">
+      <div>
+        <img src="img/logo.png" style="width: 200px;">
+        <div class="list padding margin-top-30" style="padding-top: 0;">
+          <label class="item-input">
+            <input type="text" placeholder="USERNAME" class="color-white" ng-model="logindata.username">
+          </label>
+          <label class="item-input">
+            <input type="password" placeholder="PASSWORD" class="color-white" ng-model="logindata.password">
+          </label>
+          <div style="text-align: center;margin-top: 5px;">
+            <ion-checkbox ng-model="logindata.isChecked" style="border: transparent;display: inline-flex;background-color: white;" class="font-size-12" ng-click="stayLoggedIn()">Keep me sign in</ion-checkbox>
+          </div>
+          <button class="button width-100 margin-top-10 login-button" ng-click="login()">LogIn</button>
+          <button class="button width-100 margin-top-20 instagram-button" ng-click="">Instagram</button>
+          <i class="font-size-12 color-gray">(Sign in with Instagram for a Richer Experience)</i>
+          <button class="button width-100 margin-top-20 facebook-button" ng-click="goLogin()">Facebook</button>
+          <i class="button button-clear font-size-12 color-gray" ng-click="goRegister()">No account yet? Signin</i>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+
+</ion-view>

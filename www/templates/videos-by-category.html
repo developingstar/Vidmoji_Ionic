@@ -1,0 +1,100 @@
+<ion-view hide-back-button="true" view-title="{{categotyTitle}}">
+  <ion-content class="padding margin-top-70">
+
+    <div class="margin-top-20">
+      <p class="color-gray font-bold font-size-20">{{cateName}}</p>
+      <div ng-if="selectedPage==1">
+
+        <div class="margin-bottom-10" ng-repeat="data in recentVideos">
+          <div class="card">
+            <div ng-click="goVideoDetail()">
+              <img class="full-image" src="img/dummy_video.png">
+              <div class="padding">
+                <p class="menu-icon-color p-tag-bottom-margin">Good Morning</p>
+                <p class="color-gray p-tag-bottom-margin">47 views</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div ng-if="selectedPage==2">
+
+        <div class="margin-bottom-10" ng-repeat="data in recentVideos">
+          <div class="card">
+            <div ng-click="goVideoDetail()">
+              <img class="full-image" src="img/dummy_video.png">
+              <div class="padding">
+                <p class="menu-icon-color p-tag-bottom-margin">Good Morning</p>
+                <p class="color-gray p-tag-bottom-margin">47 views</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div ng-if="selectedPage==3">
+
+        <div class="margin-bottom-10" ng-repeat="data in recentVideos">
+          <div class="card">
+            <div ng-click="goVideoDetail()">
+              <img class="full-image" src="img/dummy_video.png">
+              <div class="padding">
+                <p class="menu-icon-color p-tag-bottom-margin">Good Morning</p>
+                <p class="color-gray p-tag-bottom-margin">47 views</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div ng-if="selectedPage==4">
+
+        <div class="margin-bottom-10" ng-repeat="data in recentVideos">
+          <div class="card">
+            <div ng-click="goVideoDetail()">
+              <img class="full-image" src="img/dummy_video.png">
+              <div class="padding">
+                <p class="menu-icon-color p-tag-bottom-margin">Good Morning</p>
+                <p class="color-gray p-tag-bottom-margin">47 views</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </ion-content>
+
+  <!--Tabs-->
+  <div class="tabs tabs-border margin-top-50">
+    <a class="tab-item font-size-10" ng-class="{'tab-item-background':selectedPage==1}"
+       ng-click="switchTab(1)">Recently Added</a>
+    <a class="tab-item font-size-10" ng-class="{'tab-item-background':selectedPage==2}"
+       ng-click="switchTab(2)">Most Viewed</a>
+    <a class="tab-item font-size-10" ng-class="{'tab-item-background':selectedPage==3}"
+       ng-click="switchTab(3)">Top Rated</a>
+    <a class="tab-item font-size-10" ng-class="{'tab-item-background':selectedPage==4}"
+       ng-click="switchTab(4)">Most Commented</a>
+  </div>
+ <!-- <ion-tabs class="theme-background">
+
+    <ion-tab title="Recently Added" icon-on="" icon-off="">
+      &lt;!&ndash;Tab 1 content&ndash;&gt;
+    </ion-tab>
+
+    <ion-tab title="Most Viewed" icon-on="" icon-off="">
+      &lt;!&ndash;Tab 2 content&ndash;&gt;
+    </ion-tab>
+
+    <ion-tab title="Most Liked" icon-on="" icon-off="">
+      &lt;!&ndash;Tab 3 content&ndash;&gt;
+    </ion-tab>
+
+  </ion-tabs>-->
+
+</ion-view>

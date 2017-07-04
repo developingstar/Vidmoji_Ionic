@@ -1,0 +1,46 @@
+<ion-view hide-back-button="true" view-title="Audio Files">
+  <ion-content class="padding-7 margin-top-50">
+
+    <!--Videos Categories-->
+    <div ng-show="audioCategories">
+      <fieldset class="border-orange">
+        <legend class="background-orange color-white font-size-15 border-orange text-center">
+          Audio Categories
+        </legend>
+        <div class="margin-top-5">
+          <a menu-close class="item menu-icon-color border-transparent categories-item" ng-repeat="category in audioCategories" ng-click="goAudioByCategory(category)">
+            <span class="color-light-black font-size-14">{{category.CategoryName}}</span>
+          </a>
+        </div>
+      </fieldset>
+    </div>
+
+    <!--Recently Added Audio-->
+    <div class="margin-top-10 padding-bottom-10">
+      <fieldset class="border-orange">
+        <legend class="background-orange color-white font-size-15 border-orange text-center">
+          Recently Added Audio
+        </legend>
+        <div class="margin-top-5">
+        <div class="margin-bottom-10" ng-repeat="data in recentAudios">
+          <div class="card">
+            <a href="#/videodetail/{{data.VideoID}}" style="text-decoration:none;">
+              <img class="full-image" src="http://staging.vidmoji.com/images/audio02.jpg">
+              <div class="padding">
+                <p class="menu-icon-color p-tag-bottom-margin">{{data.Title}}</p>
+                <p class="color-gray p-tag-bottom-margin">{{data.Duration}}</p>
+                <p class="color-gray p-tag-bottom-margin">{{data.Views }} views</p>
+                <p class="menu-icon-color p-tag-bottom-margin">{{data.UserName}}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="text-center">
+          <button class="button button-outline see-all-button" ng-click="goSettings()">See All</button>
+        </div>
+      </fieldset>
+    </div>
+
+  </ion-content>
+</ion-view>

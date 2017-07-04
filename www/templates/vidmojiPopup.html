@@ -1,0 +1,114 @@
+<ion-modal-view>
+
+  <ion-content>
+    <div class="text-center margin-top-20 ">
+
+      <img class="favicon-img-size" src="img/favicon.png">
+      <span class="vidmoji-modal-title">Vidmoji</span><br>
+
+      <p class="vidmoji-modal-follow-span">Follow</p>
+
+    </div>
+
+  <div class="tabs vidmoji-modal-tab-margin">
+    <a class="tab-item vidmoji-modal-tab-click" ng-class="{'vidmoji-modal-tab-click':selectedPage=='settings'}"
+       ng-click="switchTab('settings')">Settings</a>
+    <a class="tab-item vidmoji-modal-tab-font-size " ng-class="{'vidmoji-modal-tab-click':selectedPage=='my_library'}"
+       ng-click="switchTab('my_library')">My Library</a>
+  </div>
+
+  <div ng-if="selectedPage=='settings'" class="margin-top-100">
+
+    <div>
+      <div class="comment-first-div">
+        <div class="padding">
+      <span class="card-reason">
+        Recent activity 11 days ago
+      </span><br>
+        <h3 style="font-weight: 600;">
+            Today was good - Video Starter Kit
+        </h3>
+
+        <div class="text-center margin-top-25">
+
+          <span class="comment-button">
+            <span class="comment-font">1</span>
+            <span class="comment-font">Comment</span>
+            <span class="ion-ios-chatbubble padding-left-5 comment-icon"></span>
+          </span>
+
+        </div>
+        </div>
+      </div>
+
+      <div class="comment-first-div">
+        <div class="padding">
+      <span class="card-reason">
+       Recent activity 12 days ago
+      </span><br>
+          <h3 style="font-weight: 600;">
+            Fuck you - Video Starter Kit
+          </h3>
+
+          <div class="text-center margin-top-25">
+
+          <span class="comment-button">
+            <span class="comment-font">1</span>
+            <span class="comment-font">Comment</span>
+            <span class="ion-ios-chatbubble padding-left-5 comment-icon"></span>
+          </span>
+
+          </div>
+
+          <div class=" margin-top-25">
+             <span class="card-reason">
+                That's the end.
+             </span>
+            <span class="comment-font" ng-click="openBrowser('https://disqus.com/')">
+                Find more interesting discussions >>
+             </span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div ng-if="selectedPage=='my_library'" class="margin-top-100">
+
+    <div class="text-center">
+      <img src="img/demo_img.png">
+    </div>
+
+    <div class="empty-message">
+      Darn. No one comments in this community.
+    </div>
+
+    <div class="empty-message-second" ng-click="openBrowser('https://disqus.com/')">
+      Head back home to find interesting discussions »
+    </div>
+
+  </div>
+  </ion-content>
+  <!--Footer-->
+  <div class="bar bar-footer border-top-gray">
+    <div class="footer-icons-left ">
+      <div class="footer-close-button-div" ng-click="closeModal()">
+        <span class="ion-close"></span>
+        <span class="padding-left-2">Close</span>
+      </div>
+
+      <div class="padding-7"></div>
+    </div>
+    <div class="text-center footer-icons-right">
+
+      <span class="ion-home" ng-click="openBrowser('https://disqus.com/')"></span>
+      <span class="ion-checkmark margin-left-20" ng-click="openBrowser('https://www.surveymonkey.com/r/MMWLGSR?sm=SO%2bMmIw5Cg0%2f9giEiYuJ6g%3d%3d')"></span>
+      <span class="ion-forward margin-left-20" ng-click="openBrowser('https://help.disqus.com/')"></span>
+
+    </div>
+  </div>
+</ion-modal-view>
+

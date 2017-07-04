@@ -1,0 +1,102 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content>
+    <ion-nav-bar class="nav-bar-style">
+      <ion-nav-back-button class="color-white">
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="right">
+
+        <div ng-if="hideNavBar==true" style="display: inline-flex;">
+          <div class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon font-size-20" ng-click="Search($event,1)"></i>
+            <input ng-keyup="Search($event)" type="search" placeholder="Search" style="background-color: transparent;border: transparent;width: 250px!important;">
+            <i class="icon ion-close-circled font-size-20" style="color: red;" ng-click="hideSearchBar()">
+            </i>
+          </div>
+        </div>
+        <button ng-if="hideNavBar==false" class="button button-clear ion-android-search color-white" style="font-size: 20px!important;margin-right: 10px;" ng-click="showSearchBar()">
+        </button>
+        <button class="button button-icon button-clear ion-navicon color-white" menu-toggle="right">
+        </button>
+      </ion-nav-buttons>
+
+      <ion-nav-buttons side="left">
+        <i class="" ng-click="goToPage('home')"><img src="img/app_icon.png" width="35px" height="33px"></i>
+      </ion-nav-buttons>
+
+    </ion-nav-bar>
+
+    <div class="bar bar-subheader row" style="height: initial;padding-left: 0;padding-right: 0;">
+      <i class="button button-clear ion-android-arrow-dropleft-circle floating-label-color font-size-20" ng-click="scrollRight()"></i>
+      <ion-scroll id="mainTags" zooming="false" direction="x" style="overflow-x: auto;overflow-y: hidden ;white-space: nowrap;">
+        <button class="button button-clear tag-button line-min-height font-size-12" ng-repeat="tag in tagData" style="margin-right: 5px;" ng-click="goSearchPage(tag); $event.stopPropagation();">{{tag}}</button>
+      </ion-scroll>
+      <i class=" button button-clear ion-android-arrow-dropright-circle floating-label-color font-size-20" ng-click="scrollLeft()"></i>
+    </div>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="right">
+    <ion-header-bar menu-close class="theme-background row" style="height: 125px;" ui-sref="app.profile">
+      <div class="width-100 margin-top-50">
+      <a class="item item-avatar" style="background-color: transparent!important;border: transparent;">
+        <img src="img/dummy_user.png">
+        <p class="color-white">{{User.FirstName}} {{User.LastName}}</p>
+        <p class="font-size-10 color-white">{{User.Email}}</p>
+      </a>
+      </div>
+    </ion-header-bar>
+    <ion-content style="margin-top: 75px;">
+      <ion-list>
+        <a menu-close class="item item-icon-left left-menu-item-padding-left menu-icon-color border-transparent" ng-click="goToPage('home')">
+          <i class="icon ion-android-apps font-size-20"></i>
+          <span class="font-size-12 color-light-black">Home</span>
+        </a>
+        <a menu-close class="item item-icon-left left-menu-item-padding-left menu-icon-color border-transparent" ng-click="goToPage('profile')">
+          <i class="icon ion-person font-size-20"></i>
+          <span class="font-size-12 color-light-black">My Account</span>
+        </a>
+        <a menu-close class="item item-icon-left left-menu-item-padding-left menu-icon-color border-transparent" ng-click="goToPage('video')">
+          <i class="icon ion-social-youtube font-size-20"></i>
+          <span class="font-size-12 color-light-black">Video</span>
+        </a>
+        <a menu-close class="item item-icon-left left-menu-item-padding-left menu-icon-color border-transparent" ng-click="goToPage('audio')">
+          <i class="icon ion-volume-high font-size-20"></i>
+          <span class="font-size-12 color-light-black">Audio</span>
+        </a>
+        <a menu-close class="item item-icon-left left-menu-item-padding-left menu-icon-color border-transparent" ng-click="goToPage('photo')">
+          <i class="icon ion-image font-size-20"></i>
+          <span class="font-size-12 color-light-black">Photo</span>
+        </a>
+        <a menu-close class="item item-icon-left left-menu-item-padding-left menu-icon-color border-transparent" ng-click="goToPage('upload')">
+          <i class="icon ion-android-upload font-size-20"></i>
+          <span class="font-size-12 color-light-black">Chop/upload</span>
+        </a>
+        <a menu-close class="item item-icon-left left-menu-item-padding-left menu-icon-color border-transparent" ng-click="goToPage('settings')">
+          <i class="icon ion-android-settings font-size-20"></i>
+          <span class="font-size-12 color-light-black">Settings</span>
+        </a>
+        <a menu-close class="item item-icon-left left-menu-item-padding-left menu-icon-color border-transparent" ng-click="goToPage('contactus')">
+          <i class="icon ion-email font-size-20"></i>
+          <span class="font-size-12 color-light-black">Contact us</span>
+        </a>
+        <a menu-close class="item item-icon-left left-menu-item-padding-left menu-icon-color border-transparent" ng-click="goToPage('privacy')">
+          <i class="icon ion-locked font-size-20"></i>
+          <span class="font-size-12 color-light-black">Privacy Policy</span>
+        </a>
+        <a menu-close class="item item-icon-left left-menu-item-padding-left menu-icon-color border-transparent" ng-click="goTerms()">
+          <i class="icon ion-ios-information font-size-20"></i>
+          <span class="font-size-12 color-light-black">Terms of Use</span>
+        </a>
+      <!--  <a menu-close class="item item-icon-left left-menu-item-padding-left menu-icon-color border-transparent" ng-click="goDashBoard()">
+          <i class="icon ion-ios-help font-size-20"></i>
+          <span class="font-size-12 color-light-black">Help</span>
+        </a>-->
+        <a menu-close class="item item-icon-left left-menu-item-padding-left menu-icon-color border-transparent" ng-click="signOut()">
+          <i class="icon ion-log-out font-size-20"></i>
+          <span class="font-size-12 color-light-black">Sign Out</span>
+        </a>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

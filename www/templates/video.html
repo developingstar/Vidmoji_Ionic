@@ -1,0 +1,61 @@
+<ion-view hide-back-button="true" view-title="Videos">
+  <ion-content class="padding-7 margin-top-50">
+
+    <!--Videos Categories-->
+    <div>
+      <fieldset class="border-orange">
+        <legend class="background-orange color-white font-size-15 border-orange text-center">
+          Videos Categories
+        </legend>
+        <div class="margin-top-5">
+          <a menu-close class="item menu-icon-color border-transparent categories-item" ng-repeat="category in videoCategories" ng-click="goVideosByCategory(category)">
+            <span class="color-light-black font-size-14">{{category.CategoryName}}</span>
+          </a>
+        </div>
+      </fieldset>
+    </div>
+
+    <!--Archives-->
+    <!-- <div class="margin-top-10">
+      <fieldset class="border-orange">
+        <legend class="background-orange color-white font-size-15 border-orange text-center">
+          Archives
+        </legend>
+        <div class="margin-top-5">
+          <a menu-close class="item menu-icon-color border-transparent categories-item" ng-repeat="category in Archives" ng-click="goToPage('video')">
+            <span class="color-light-black font-size-14">{{category}}</span>
+          </a>
+        </div>
+      </fieldset>
+    </div> -->
+
+    <!--Recently Added Videos-->
+    <div class="margin-top-10 padding-bottom-10">
+      <fieldset class="border-orange">
+        <legend class="background-orange color-white font-size-15 border-orange text-center">
+          Recently Added Videos
+        </legend>
+        <div class="margin-top-5">
+        <div class="margin-bottom-10" ng-repeat="data in recentVideos">
+          <div class="card">
+            <a href="#/videodetail/{{data.VideoID}}" style="text-decoration:none;">
+              <img class="full-image" src="http://staging.vidmoji.com/contents/member/{{data.UserName}}/Thumbs/{{data.ThumbFileName}}">
+              <div class="padding">
+                <p class="menu-icon-color p-tag-bottom-margin">{{data.Title}}</p>
+                <p class="color-gray p-tag-bottom-margin">{{data.Date_Added}}</p>
+                <p class="color-gray p-tag-bottom-margin">{{data.Views }} views</p>
+                <p class="menu-icon-color p-tag-bottom-margin">{{data.UserName}}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="text-center">
+          <button class="button button-outline see-all-button" ng-click="goSettings()">See All</button>
+        </div>
+      </fieldset>
+    </div>
+
+  </ion-content>
+
+</ion-view>

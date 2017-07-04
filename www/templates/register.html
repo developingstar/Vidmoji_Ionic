@@ -1,0 +1,44 @@
+<ion-view hide-nav-bar="true">
+  <ion-content>
+    <div style="text-align: center;padding-top: 30px;">
+      <img src="img/logo.png" width="200px">
+    </div>
+    <div class="padding-20">
+      <div class="list">
+        <label class="item-input item-floating-label padding-0">
+          <span class="input-label font-size-12 floating-label-color">Enter User Name</span>
+          <input type="text" placeholder="Username" class="color-white" ng-model="signupdata.username">
+        </label>
+        <label class="item-input item-floating-label padding-0">
+          <span class="input-label font-size-12 floating-label-color">Enter Password</span>
+          <input type="password" placeholder="Password" class="color-white" ng-model="signupdata.password">
+        </label>
+        <label class="item-input item-floating-label padding-0">
+          <span class="input-label font-size-12 floating-label-color">Confirm password</span>
+          <input type="password" placeholder="Confirm password" class="color-white" ng-model="signupdata.confirmpassword">
+        </label>
+        <label class="item-input item-floating-label padding-0">
+          <span class="input-label font-size-12 floating-label-color">Enter Email Address</span>
+          <input type="email" placeholder="Email" class="color-white" ng-model="signupdata.email">
+        </label>
+        <label class="item-input item-floating-label padding-0">
+          <span class="input-label font-size-12 floating-label-color">Country</span>
+          <input type="text" placeholder="Country" class="color-white" ng-model="signupdata.country">
+        </label>
+        <label text-align: center;margin-top: 5px; class="item-input item-floating-label padding-0">
+          <ion-radio ng-model="signupdata.gender" ng-value="1">Male</ion-radio>
+          <ion-radio ng-model="signupdata.gender" ng-value="0">Female</ion-radio>
+        </label>
+        <div style="text-align: center;margin-top: 5px;" class="row">
+          <ion-checkbox style="border: transparent;background-color: white;" ng-model="signupdata.isgree"></ion-checkbox>
+          <div class="margin-top-5">
+            <a class="font-size-12" href="#/terms" style="text-decoration: underline;padding-left: 2px;">I agree to Vidmoji Terms of Service</a>
+          </div>
+        </div>
+        <button class="button width-100 margin-top-10 login-button" ng-click="signup()">Register</button>
+        <button class="button width-100 margin-top-20 facebook-button">Facebook</button>
+        <i class="button button-clear width-100 color-gray font-size-12 font-weight-500" ng-click="goLogin()">Already a member? Login</i>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,99 @@
+<ion-view hide-back-button="true" view-title="Terms and Use" hide-nav-bar="true">
+  <ion-header-bar class="nav-bar-style" title="Search">
+    <i class="button button-icon button-clear ion-arrow-left-c color-white" ng-click="$ionicGoBack()"></i>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div class="width-100 background-orange text-center color-white padding font-size-15">Search results for "{{searchText}}"</div>
+    <!-- <p class="color-black font-weight-500 font-size-20">Search result</p>-->
+
+    <!--Videos-->
+    <div class="margin-top-10 padding-bottom-10">
+      <fieldset class="border-orange">
+        <legend class="background-orange color-white font-size-15 border-orange text-center">
+          {{searchText}} Videos
+        </legend>
+        <div class="margin-top-5">
+          <div id="MC_myvideos_v11_norecord" class="jumbotron marginfixed item_c" ng-show="!recentVideos || recentVideos.length < 1">
+            <h4 id="MC_myvideos_v11_norec">No Videos Found Related To {{searchText}}</h4>
+          </div>
+          <div class="padding" ng-repeat="data in recentVideos">
+            <div class="card">
+              <a href="#/videodetail/{{data.VideoID}}" style="text-decoration:none;">
+                <img class="full-image" src="http://staging.vidmoji.com/contents/member/{{data.UserName}}/Thumbs/{{data.ThumbFileName}}">
+                <div class="padding">
+                  <p class="menu-icon-color p-tag-bottom-margin">{{data.Title}}</p>
+                  <p class="color-gray p-tag-bottom-margin">{{data.Date_Added}}</p>
+                  <p class="color-gray p-tag-bottom-margin">{{data.Views }} views</p>
+                  <p class="menu-icon-color p-tag-bottom-margin">{{data.UserName}}</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="text-center">
+          <button class="button button-outline see-all-button" ng-click="goSettings()">See All</button>
+        </div>-->
+      </fieldset>
+    </div>
+
+    <!--Audio files-->
+    <div class="margin-top-10 padding-bottom-10">
+      <fieldset class="border-orange">
+        <legend class="background-orange color-white font-size-15 border-orange text-center">
+          {{searchText}} Audio Files
+        </legend>
+        <div class="margin-top-5">
+          <div class="jumbotron marginfixed item_c" ng-show="!recentAudios || recentAudios.length < 1">
+            <h4>No Audio Files Found Related To {{searchText}}</h4>
+          </div>
+          <div class="padding" ng-repeat="data in recentAudios" ng-show="recentAudios">
+            <div class="card">
+              <a href="#/audiodetail/{{data.AudioID}}" style="text-decoration:none;">
+                <img class="full-image" src="http://staging.vidmoji.com/images/audio02.jpg">
+                <div class="padding">
+                  <p class="menu-icon-color p-tag-bottom-margin">{{data.Title}}</p>
+                  <p class="color-gray p-tag-bottom-margin">{{data.Duration}}</p>
+                  <p class="color-gray p-tag-bottom-margin">{{data.Views }} views</p>
+                  <p class="menu-icon-color p-tag-bottom-margin">{{data.UserName}}</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!--<div class="text-center">
+          <button class="button button-outline see-all-button" ng-click="goSettings()">See All</button>
+        </div>-->
+      </fieldset>
+    </div>
+
+    <!--Photos-->
+    <div class="margin-top-10 padding-bottom-10">
+      <fieldset class="border-orange">
+        <legend class="background-orange color-white font-size-15 border-orange text-center">
+          {{searchText}} Pictures
+        </legend>
+        <div class="margin-top-5">
+          <div class="jumbotron marginfixed item_c" ng-show="!recentPhotos || recentPhotos.length < 1">
+            <h4>No Photos Found Related To {{searchText}}</h4>
+          </div>
+          <div class="padding" ng-repeat="data in recentPhotos">
+            <div class="card">
+              <a href="#/photodetail/{{data.ImageID}}" style="text-decoration:none;">
+                <img class="full-image" src="http://staging.vidmoji.com/contents/member/{{data.UserName}}/photos/Thumbs/{{data.FileName}}">
+                <div class="padding">
+                  <p class="menu-icon-color p-tag-bottom-margin">{{data.Caption}}</p>
+                  <p class="color-gray p-tag-bottom-margin">{{data.Views }} views</p>
+                  <p class="menu-icon-color p-tag-bottom-margin">{{data.UserName}}</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!--  <div class="text-center">
+          <button class="button button-outline see-all-button" ng-click="goSettings()">See All</button>
+        </div>-->
+      </fieldset>
+    </div>
+
+  </ion-content>
+</ion-view>

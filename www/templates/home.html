@@ -1,0 +1,123 @@
+<ion-view hide-back-button="true" view-title="Home">
+  <ion-content class="padding margin-top-50">
+
+    <!--autoplay="autoplay"-->
+    <video id="mainVideo" poster="img/dummy_video.png" preload="metadata" webkit-playsinline="webkit-playsinline" class="videoPlayer" ng-click="playPause()">
+      <source ng-src="http://player.vimeo.com/external/85569724.sd.mp4?s=43df5df0d733011263687d20a47557e4" type="video/mp4" /> Your browser does not support this video player.
+    </video>
+
+    <!-- Video Controls -->
+    <div id="video-controls" class="row" style="background-color: black;margin-top: -40px;opacity: 0.7;">
+      <div>
+        <i id="play-pause" class="ion-play color-white font-size-20"></i>
+      </div>
+      <div class="margin-left-5 range-margin-top">
+        <input type="range" id="seek-bar" value="0">
+      </div>
+      <div class="margin-left-5">
+        <i id="mute" class="ion-volume-high color-white font-size-20"></i>
+      </div>
+      <div class="margin-left-5 range-margin-top">
+        <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+      </div>
+      <!--<div class="margin-left-5">
+        <i id="full-screen" class="ion-arrow-expand color-white font-size-20"></i>
+      </div>-->
+    </div>
+
+    <p class="color-black font-weight-500 font-size-20 padding-top">Good Morning</p>
+
+    <!--  <p>{{currTime}}</p>
+    <p>{{totalDur}}</p>
+    <p>{{buff}}</p>-->
+
+
+    <!--Featured videos-->
+    <div style="border: 1px solid orange;" class="margin-bottom-10" ng-show="FeaturedVideo">
+      <div class="width-100 background-orange text-center color-white padding font-size-15">Featured videos</div>
+      <div class="padding">
+        <div class="card">
+          <a href="#/videodetail/{{FeaturedVideo.VideoID}}" style="text-decoration:none;">
+            <img class="full-image" ng-src="http://staging.vidmoji.com/contents/member/{{FeaturedVideo.UserName}}/Thumbs/{{FeaturedVideo.ThumbFileName}}">
+            <div class="padding">
+              <p class="menu-icon-color p-tag-bottom-margin">{{FeaturedVideo.Title}}</p>
+              <p class="color-gray p-tag-bottom-margin">{{FeaturedVideo.Date_Added  | date}}</p>
+              <p class="color-gray p-tag-bottom-margin">{{FeaturedVideo.Views }} views</p>
+              <p class="menu-icon-color p-tag-bottom-margin">{{FeaturedVideo.UserName}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- <div class="text-center">
+        <button class="button button-outline margin-bottom-10 see-all-button" ng-click="goSettings()">See All</button>
+      </div>-->
+    </div>
+
+    <!--Recent vodeos-->
+    <div style="border: 1px solid orange;" class="margin-bottom-10" ng-show="recentVideos">
+      <div class="width-100 background-orange text-center color-white padding font-size-15">Recent Videos</div>
+      <div class="padding" ng-repeat="data in recentVideos">
+        <div class="card">
+          <a href="#/videodetail/{{data.VideoID}}" style="text-decoration:none;">
+            <img class="full-image" ng-src="http://staging.vidmoji.com/contents/member/{{data.UserName}}/Thumbs/{{data.ThumbFileName}}">
+            <div class="padding">
+              <p class="menu-icon-color p-tag-bottom-margin">{{data.Title}}</p>
+              <p class="color-gray p-tag-bottom-margin">{{data.Date_Added | date}}</p>
+              <p class="color-gray p-tag-bottom-margin">{{data.Views }} views</p>
+              <p class="menu-icon-color p-tag-bottom-margin">{{data.UserName}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="button button-outline margin-bottom-10 see-all-button" ng-click="goVideosByCategory('')">See All</button>
+      </div>
+    </div>
+
+    <!--Recent photos-->
+    <div style="border: 1px solid orange;" class="margin-bottom-10" ng-show="recentPhotos">
+      <div class="width-100 background-orange text-center color-white padding font-size-15">Recent Photos</div>
+      <div class="padding" ng-repeat="data in recentPhotos">
+
+        <div class="card">
+          <a href="#/photodetail/{{data.ImageID}}" style="text-decoration:none;">
+            <img class="full-image" ng-src="http://staging.vidmoji.com/contents/member/{{data.UserName}}/photos/Thumbs/{{data.FileName}}">
+            <div class="padding">
+              <p class="menu-icon-color p-tag-bottom-margin">{{data.Caption}}</p>
+              <p class="color-gray p-tag-bottom-margin">{{data.Views }} views</p>
+              <p class="menu-icon-color p-tag-bottom-margin">{{data.UserName}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="button button-outline margin-bottom-10 see-all-button" ng-click="goPhotosByCategory('')">See All</button>
+      </div>
+    </div>
+
+    <!--Recent audios-->
+    <div class="padding-bottom-10">
+      <div style="border: 1px solid orange;" ng-show="recentAudios">
+        <div class="width-100 background-orange text-center color-white padding font-size-15">Recent Audio</div>
+        <div class="padding" ng-repeat="data in recentAudios">
+          <div class="card">
+            <a href="#/audiodetail/{{data.VideoID}}" style="text-decoration:none;">
+              <img class="full-image" ng-src="http://staging.vidmoji.com/images/audio02.jpg">
+              <div class="padding">
+                <p class="menu-icon-color p-tag-bottom-margin">{{data.Title}}</p>
+                <p class="color-gray p-tag-bottom-margin">{{data.Duration}}</p>
+                <p class="color-gray p-tag-bottom-margin">{{data.Views }} views</p>
+                <p class="menu-icon-color p-tag-bottom-margin">{{data.UserName}}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="button button-outline margin-bottom-10 see-all-button" ng-click="goAudioByCategory('')">See All</button>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+
+
+</ion-view>

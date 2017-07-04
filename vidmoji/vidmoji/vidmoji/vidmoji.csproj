@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4F445534-A3EA-4A43-A6E0-A2A73585BE4D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>vidmoji</RootNamespace>
+    <AssemblyName>vidmoji</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+    <Content Include="Webconfig.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="api\albums\Process.ashx.cs">
+      <DependentUpon>Process.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="api\blogs\Process.ashx.cs">
+      <DependentUpon>Process.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="api\Categories\Process.ashx.cs">
+      <DependentUpon>Process.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="api\Configuration\Process.ashx.cs">
+      <DependentUpon>Process.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="api\dictionary\Process.ashx.cs">
+      <DependentUpon>Process.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="api\forums\Forums.ashx.cs">
+      <DependentUpon>Forums.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="api\forums\Procss.ashx.cs">
+      <DependentUpon>Procss.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="api\friend\Process.ashx.cs">
+      <DependentUpon>Process.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="api\general\favorite.ashx.cs">
+      <DependentUpon>favorite.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="api\general\tag.ashx.cs">
+      <DependentUpon>tag.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="api\general\usertag.ashx.cs">
+      <DependentUpon>usertag.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="api\groups\Process.ashx.cs">
+      <DependentUpon>Process.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="api\members\Process.ashx.cs">
+      <DependentUpon>Process.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="api\photos\Process.ashx.cs">
+      <DependentUpon>Process.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="api\qa\Answers.ashx.cs">
+      <DependentUpon>Answers.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="api\qa\Process.ashx.cs">
+      <DependentUpon>Process.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="api\videos\Process.ashx.cs">
+      <DependentUpon>Process.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="api\albums\Process.ashx" />
+    <Content Include="api\blogs\Process.ashx" />
+    <Content Include="api\Categories\Process.ashx" />
+    <Content Include="api\Configuration\Process.ashx" />
+    <Content Include="api\dictionary\Process.ashx" />
+    <Content Include="api\forums\Forums.ashx" />
+    <Content Include="api\forums\Procss.ashx" />
+    <Content Include="api\friend\Process.ashx" />
+    <Content Include="api\general\favorite.ashx" />
+    <Content Include="api\general\tag.ashx" />
+    <Content Include="api\general\usertag.ashx" />
+    <Content Include="api\groups\Process.ashx" />
+    <Content Include="api\members\Process.ashx" />
+    <Content Include="api\photos\Process.ashx" />
+    <Content Include="api\qa\Answers.ashx" />
+    <Content Include="api\qa\Process.ashx" />
+    <Content Include="api\videos\Process.ashx" />
+    <Content Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>9476</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:9476/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

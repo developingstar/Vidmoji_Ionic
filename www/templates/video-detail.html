@@ -1,0 +1,233 @@
+<ion-view hide-back-button="true" view-title="Home" hide-nav-bar="true">
+  <ion-content ng-style="{ 'marginTop' : videoHeight }">
+    <div class="padding" style="border-bottom: 2px solid #DFDFDF;padding-top: 0;">
+      <p class="color-black font-weight-500 font-size-20">{{VideoDetail.Title}}</p>
+      <p class="color-gray p-tag-bottom-margin">{{VideoDetail.Views}} views</p>
+      <p class="color-gray p-tag-bottom-margin">Uploaded on {{VideoDetail.Date_Added | date}} by {{VideoDetail.UserName}}</p>
+    </div>
+
+
+    <div style="margin-top: 15px;" class="padding">
+
+      <div id="MC_cntMyTags" class="add-tag-wrapper">
+        <div>
+          <div class="padding-left-5">
+            <h4 class="font-size-14">My Tags:</h4>
+          </div>
+          <div>
+            <a class="button tag-button font-size-12 tag-line-min-height" ng-repeat="tag in VideoDetail.Tags.split(',')" style="margin: 5px;font-size: 12px!important;" ng-click="(tag); $event.stopPropagation();">{{tag}}<i class="ion-close-round padding-left"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="add-tag-wrapper">
+        <div>
+          <div class="padding-left-5">
+            <h4 class="font-size-14">Other Tags:</h4>
+          </div>
+          <div>
+            <a class="button tag-button font-size-12 tag-line-min-height" ng-repeat="tag in VideoDetail.UserTags.split(',')" style="margin: 5px;font-size: 12px!important;" ng-click="(tag); $event.stopPropagation();">{{tag}}</a>
+          </div>
+        </div>
+
+      </div>
+
+
+
+      <!--  <div class="row" style="margin-left: -8px">
+        <div class="col col-50">
+          <input style="padding-left: 5px" type="text" class="form-control" id="txtatag" placeholder="Add A Tag">
+        </div>
+        <div class="col" style="margin-top: 7px">
+          <span class="add-tag-button">Add A Tag</span>
+        </div>
+      </div>-->
+
+      <label class="item item-input padding-0 padding-left border-orange" style="border-radius: 4px;">
+        <input type="text" placeholder="Add A Tag" class="transparent-border" style="padding-left: 10px;">
+        <i class="button button-clear see-all-button line-min-height placeholder-icon floating-label-color border-radius-0 font-size-12">Add A Tag</i>
+      </label>
+
+
+    </div>
+
+    <div class="padding" style="border-bottom: 2px solid #DFDFDF;">
+      <span class="icon color-black font-weight-500 font-size-15" style="padding-bottom: 0!important;">{{commentData.length}} Comments</span>
+      <span class="icon color-gray font-weight-500 font-size-15 padding-left-20" style="padding-bottom: 0!important;" ng-click="openModal()">Vidmoji</span>
+    </div>
+    <div class="row">
+      <a menu-close class="item item-icon-left border-transparent width-100">
+        <i class="icon ion-heart font-size-20 color-light-black"></i>
+        <span class="font-size-12 color-light-black">Recommend</span>
+      </a>
+      <a menu-close class="item item-icon-left border-transparent width-100">
+        <i class="icon ion-share font-size-20 color-light-black"></i>
+        <span class="font-size-12 color-light-black">Share</span>
+      </a>
+    </div>
+
+    <div>
+      <div class="list padding">
+
+        <a class="item item-avatar" ng-repeat="data in commentData">
+          <img src="{{data.author.avatar.small.permalink}}">
+          <h2 class="floating-label-color">{{data.author.name}}</h2>
+          <p style="white-space: normal;">{{data.raw_message}}</p>
+        </a>
+
+      </div>
+    </div>
+
+    <ion-list>
+      <div class="padding" ng-repeat="group in aboutGroups">
+        <ion-item class="expand-item-font-size" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}" style="padding: 0;">
+          <input type="text" placeholder="Start the discussion…" class="width-100 comment-input">
+        </ion-item>
+        <ion-item class="item-accordion" ng-repeat="item in group.items" ng-show="isGroupShown(group)">
+          <div>
+
+            <i class="ion-image"></i>
+
+          </div>
+        </ion-item>
+      </div>
+    </ion-list>
+
+
+    <div class="padding">
+      <!--Recent vodeos-->
+      <div style="border: 1px solid orange;" class="margin-bottom-10">
+        <div class="width-100 background-orange text-center color-white padding font-size-15">Recent Videos</div>
+        <div class="padding" ng-repeat="data in recentVideos">
+          <div class="card">
+            <div ng-click="goVideoDetail()">
+              <img class="full-image" src="img/dummy_video.png">
+              <div class="padding">
+                <p class="menu-icon-color p-tag-bottom-margin">Good Morning</p>
+                <p class="color-gray p-tag-bottom-margin">2 weeks ago</p>
+                <p class="color-gray p-tag-bottom-margin">47 views</p>
+                <p class="menu-icon-color p-tag-bottom-margin">This is a dummy video</p>
+                <div>
+                  <i class="font-size-12 color-light-black" ng-repeat="tag in tagData" style="margin: 5px 5px 10px 0;text-decoration: underline;" ng-click="goSearchPage(tag); $event.stopPropagation();">{{tag}}</i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="button button-outline margin-bottom-10 see-all-button" ng-click="goSettings()">See All</button>
+        </div>
+      </div>
+
+      <!--Recent photos-->
+      <div style="border: 1px solid orange;" class="margin-bottom-10">
+        <div class="width-100 background-orange text-center color-white padding font-size-15">Recent Photos</div>
+        <div class="padding" ng-repeat="data in recentVideos">
+          <div class="card">
+            <div ng-click="goPhotoDetail()">
+              <img class="full-image" src="img/dummy_photo.png">
+              <div class="padding">
+                <p class="menu-icon-color p-tag-bottom-margin">Today was good</p>
+                <p class="color-gray p-tag-bottom-margin">1 month ago</p>
+                <p class="menu-icon-color p-tag-bottom-margin">This is a dummy photo</p>
+                <div>
+                  <i class="font-size-12 color-light-black" ng-repeat="tag in tagData" style="margin: 5px 5px 10px 0;text-decoration: underline;" ng-click="goSearchPage(tag); $event.stopPropagation();">{{tag}}</i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="button button-outline margin-bottom-10 see-all-button" ng-click="goSettings()">See All</button>
+        </div>
+      </div>
+
+      <!--Recent audios-->
+      <div class="padding-bottom-10">
+        <div style="border: 1px solid orange;">
+          <div class="width-100 background-orange text-center color-white padding font-size-15">Recent Audio</div>
+          <div class="padding" ng-repeat="data in recentVideos">
+            <div class="card">
+              <div ng-click="goAudioDetail()">
+                <img class="full-image" src="img/audio_icon.png">
+                <div class="padding">
+                  <p class="menu-icon-color p-tag-bottom-margin">I Miss You</p>
+                  <p class="color-gray p-tag-bottom-margin">0:0:9</p>
+                  <p class="color-gray p-tag-bottom-margin">3 weeks ago</p>
+                  <p class="color-gray p-tag-bottom-margin">50 views</p>
+                  <p class="menu-icon-color p-tag-bottom-margin">This is a dummy audio</p>
+                  <div>
+                    <i class="font-size-12 color-light-black" ng-repeat="tag in tagData" style="margin: 5px 5px 10px 0;text-decoration: underline;" ng-click="goSearchPage(tag); $event.stopPropagation();">{{tag}}</i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button class="button button-outline margin-bottom-10 see-all-button" ng-click="goSettings()">See All</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <div class="padding" style="padding-top: 0;">
+      <input type="text" placeholder="Start the discussion…" class="width-100 comment-input">
+    </div>-->
+
+
+  </ion-content>
+  <div id="mainVideoNew">
+    <div class="padding-5 row">
+      <i class="ion-android-arrow-dropleft-circle floating-label-color font-size-20 padding-top-8" style="padding-right: 2px;"></i>
+      <ion-scroll zooming="false" direction="x" style="overflow-x: auto;overflow-y: hidden ;white-space: nowrap;">
+        <button class="button button-clear tag-button line-min-height font-size-12" ng-repeat="tag in tagData" style="margin-right: 5px;" ng-click="goSearchPage(tag); $event.stopPropagation();">{{tag}}</button>
+      </ion-scroll>
+      <i class="ion-android-arrow-dropright-circle font-size-20 floating-label-color padding-top-8" style="padding-left: 2px;"></i>
+    </div>
+    <!--autoplay="autoplay"-->
+    <video id="detailVideo" ng-poster="http://staging.vidmoji.com/contents/member/{{VideoDetail.UserName}}/Thumbs/{{VideoDetail.ThumbFileName}}" preload="metadata" webkit-playsinline="webkit-playsinline" class="videoPlayer" ng-click="playPause()">
+      <source  type="video/mp4" /> Your browser does not support this video player.
+    </video>
+    <!-- Video Controls -->
+    <div ng-show="showControlBar==true" id="video-controls" class="row margin-bottom-10" style="background-color: black;margin-top: -40px;opacity: 0.7;">
+      <div>
+        <i id="play-pause1" class="ion-play color-white font-size-20"></i>
+      </div>
+      <div class="padding-left range-margin-top">
+        <input type="range" id="seek-bar1" value="0">
+      </div>
+      <div class="padding-left">
+        <i id="mute1" class="ion-volume-high color-white font-size-20"></i>
+      </div>
+      <div class="padding-left range-margin-top">
+        <input type="range" id="volume-bar1" min="0" max="1" step="0.1" value="1">
+      </div>
+      <div class="padding-left">
+        <i id="full-screen1" class="ion-arrow-expand color-white font-size-20"></i>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-center background-black padding">
+        <i class="ion-thumbsup menu-icon-color"></i>
+        <br>
+        <span class="menu-icon-color">200</span>
+      </div>
+      <div class="text-center background-black padding margin-left-5">
+        <i class="ion-thumbsdown menu-icon-color"></i>
+        <br>
+        <span class="menu-icon-color">50</span>
+      </div>
+      <div class="text-center background-black padding margin-left-5">
+        <p class="color-white padding-top font-size-12">Description</p>
+      </div>
+      <div class="text-center background-black padding margin-left-5">
+        <p class="color-white padding-top font-size-12">Lyrics</p>
+      </div>
+      <div class="text-center background-black padding margin-left-5">
+        <p class="color-white padding-top font-size-12">Add to Favorite</p>
+      </div>
+    </div>
+
+  </div>
+</ion-view>
